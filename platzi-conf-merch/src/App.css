@@ -1,13 +1,54 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #282c34;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 10px;
+}
+
+.header-logo-container {
+  width: 100%;
+}
+
+.logo.logo-header {
+  height: 2em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  padding: 20px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.content.dark {
+  background-color: #1c1c1c;
+  color: #fff;
 }
 
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -33,10 +74,3 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
