@@ -1,10 +1,14 @@
 import Header from "./Header";
+import "../styles/components/Layout.css";
+import "../styles/App.css";
+import Footer from "./Footer";
 
 const Container = ({ children }) => {
   return (
-    <div className="container">
+    <div className="Main">
       <Header />
-      <main className={`content`}>{children}</main>
+      <main className="Main-content">{children}</main>
+      <Footer />
     </div>
   );
 };

@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import Layout from "./components/Layout";
+import "./styles/index.css";
 import AppRoutes from "./routes";
+import ErrorBoundary from "./context/ErrorBoundary";
+import { AppProvider } from "./context/AppContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Layout>
-      <AppRoutes />
-    </Layout>
+    <AppProvider>
+      <ErrorBoundary>
+        <AppRoutes />
+      </ErrorBoundary>
+    </AppProvider>
   </React.StrictMode>
 );

@@ -1,7 +1,8 @@
-const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+import initialState from "../initialState";
+import Products from "./Products";
 
-export default Home
+const Home = () => {
+  return <Products products={initialState}></Products>;
+};
+
+export default Home;
