@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import initialState from "../initialState";
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
+
+  useEffect(() => {
+    return () => {};
+  }, []);
 
   const addToCart = (payload) => {
     setState({
@@ -20,7 +24,11 @@ const useInitialState = () => {
     setState({ ...state, buyer: [...state.buyer, payload] });
   };
 
-  return { state, addToCart, removeFromCart, addToBuyer };
+  const addNewOrder = (payload) => {
+    setState({ ...state, orders: [...state.orders, payload] });
+  };
+
+  return { state, addToCart, removeFromCart, addToBuyer, addNewOrder };
 };
 
 export default useInitialState;

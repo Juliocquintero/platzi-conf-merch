@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/components/Information.css";
 import AppContext from "../context/AppContext";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import InformationItem from "./InformationItem";
 
 const Information = () => {
@@ -19,6 +19,7 @@ const Information = () => {
     addToBuyer(buyer);
     navigate("/checkout/payment", { buyer });
   };
+
   return (
     <div className="Information">
       <div className="Information-content">

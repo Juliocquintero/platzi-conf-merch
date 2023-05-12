@@ -10,10 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@paypal/react-paypal-js": "^7.8.3",
+    "leaflet": "^1.9.3",
+    "leaflet-control-geocoder": "^2.4.0",
+    "leaflet-geosearch": "^3.8.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.11.1",
     "sort-by": "^1.2.0"
   },
