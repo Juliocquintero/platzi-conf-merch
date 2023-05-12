@@ -1,4 +1,4 @@
-- name: GitHub Action for Firebase
+  name: GitHub Action for Firebase
   uses: w9jds/firebase-action@v11.30.0
 
 name: Build and Deploy
