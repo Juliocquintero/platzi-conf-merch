@@ -1,40 +1,34 @@
-  name: GitHub Action for Firebase
-  uses: w9jds/firebase-action@v11.30.0
+name: Despliegue a Firebase
 
-name: Build and Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@main
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: dist
   deploy:
-    name: Deploy
-    needs: build
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@main
-      - name: Download Artifact
-        uses: actions/download-artifact@master
+      - name: Checkout del repositorio
+        uses: actions/checkout@v2
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v2
         with:
-          name: dist
-          path: dist
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          node-version: 14
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Construir la aplicación
+        run: npm run build
+
+      - name: Configurar Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Autenticarse en Firebase
+        run: npx firebase login:ci --no-localhost
+
+      - name: Desplegar a Firebase
+        run: npx firebase deploy --only hosting --token $FIREBASE_TOKEN
